@@ -1,9 +1,11 @@
-const gun = require('../../../app')
-const user = require('../../../app')
+require('gun/sea')
+const Gun = require('gun')
+const gun = new Gun()
+const user = gun.user()
 
 class UserService {
-    createUser(username, password, email, role) {
-        let result = user.create(username, password, (ack) => {
+    async createUser(username, password, email, role) {
+        let result = await user.create(username, password, (ack) => {
             return ack
         }, email, role)
 
@@ -11,8 +13,8 @@ class UserService {
         
     }
 
-    authUser(username, password) {
-        let result = user.auth(username, password, (ack) => {
+    async authUser(username, password) {
+        let result = await user.auth(username, password, (ack) => {
             return ack
         })
 
@@ -20,8 +22,8 @@ class UserService {
 
     }
 
-    updateUser(username, password, newPassword) {
-        let result = user.auth(username, password, (ack) => {
+    async updateUser(username, password, newPassword) {
+        let result = await user.auth(username, password, (ack) => {
             return ack
         }, {change: newPassword})
 
@@ -29,8 +31,8 @@ class UserService {
 
     }
 
-    deleteUser(username, password) {
-        let result = user.delete(username, password, (ack) => {
+    async deleteUser(username, password) {
+        let result = await user.delete(username, password, (ack) => {
             return ack
 
         })
@@ -39,8 +41,8 @@ class UserService {
 
     }
 
-    leaveUser(){
-        let result = user.leave((ack) => {
+    async leaveUser(){
+        let result = await user.leave((ack) => {
             return ack
         })
 

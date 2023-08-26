@@ -23,7 +23,7 @@ class UserController {
         }
         
         else {
-            return res.result(400).send({
+            return res.status(400).send({
                 "message": "Bad Request"
 
             })

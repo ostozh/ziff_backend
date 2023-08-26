@@ -19,7 +19,6 @@ const gun = new Gun({ web: server })
 
 const user = gun.user()
 
-
 app.get('/', (req, res) => {
     res.send(200)
 })
