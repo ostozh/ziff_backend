@@ -1,7 +1,6 @@
 const express = require('express'),
     router = express.Router(),
-    UserController = require('../controllers/users.controller'),
-    UserService = require('../services/users.service');
+    UserController = require('../controllers/users.controller')
 
 router.use(async (req, res, next) => {
     console.log('Time: ', Date.now())
