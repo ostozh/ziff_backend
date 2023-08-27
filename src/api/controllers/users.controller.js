@@ -11,12 +11,18 @@ class UserController {
             let result = await UserService.createUser(username, password, email, role)
 
             if (result) {
-                return res.status(200).send(result)
+                return res.status(200).send({
+                    "message": "success create"
+
+                })
 
             }
 
             else {
-                return res.status(500).send(result)
+                return res.status(500).send({
+                    "message": "error"
+
+                })
 
             }
 
@@ -40,12 +46,17 @@ class UserController {
             let result = await UserService.authUser(username, password)
 
             if (result) {
-                return res.status(200).send(result)
+                return res.status(200).send({
+                    "message": "success auth"
+                })
 
             }
 
             else {
-                return res.status(500).send(result)
+                return res.status(500).send({
+                    "message": "error"
+
+                })
 
             }
 
@@ -70,12 +81,18 @@ class UserController {
             let result = await UserService.updateUser(username, password, newPassword)
 
             if (result) {
-                return res.status(200).send(result)
+                return res.status(200).send({
+                    "message": "success update"
+
+                })
 
             }
 
             else {
-                return res.status(500).send(result)
+                return res.status(500).send({
+                    "message": "error"
+
+                })
 
             }
 
@@ -99,12 +116,18 @@ class UserController {
             let result = await UserService.deleteUser(username, password)
 
             if (result) {
-                return res.status(200).send(result)
+                return res.status(200).send({
+                    "message": "success delete"
+
+                })
 
             }
 
             else {
-                return res.status(500).send(result)
+                return res.status(500).send({
+                    "message": "error"
+
+                })
 
             }
 
@@ -124,12 +147,18 @@ class UserController {
         let result = await UserService.leaveUser()
 
         if (result) {
-            return res.status(200).send(result)
+            return res.status(200).send({
+                "message": "success leave"
+
+            })
 
         }
 
         else {
-            return res.status(500).send(result)
+            return res.status(500).send({
+                "message": "error"
+
+            })
 
         }        
 
